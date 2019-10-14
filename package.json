@@ -1,0 +1,24 @@
+{
+  "name": "sprint",
+  "version": "1.0.0",
+  "description": "my amazing sprint",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IslaMcN/node-db-challenge.git"
+  },
+  "author": "Isla B. McNeill",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IslaMcN/node-db-challenge/issues"
+  },
+  "homepage": "https://github.com/IslaMcN/node-db-challenge#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.19.5",
+    "sqlite3": "^4.1.0"
+  }
+}
