@@ -4,6 +4,7 @@
   "description": "my amazing sprint",
   "main": "index.js",
   "scripts": {
+    "server": "nodemon index.js",
     "test": "test"
   },
   "repository": {
