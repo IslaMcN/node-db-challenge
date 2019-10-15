@@ -1,7 +1,7 @@
 const express = require('express');
 const db = require('./db-config');
 const ProjectRouter = require('./Projects/project-router');
-const ResourceRouter = require('./resource-router');
+const ResourceRouter = require('./Resources/resource-router');
 const TaskRouter = require('./task-router');
 const server = express();
 
