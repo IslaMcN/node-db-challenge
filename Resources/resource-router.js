@@ -3,7 +3,7 @@ const db = require('./resource-model');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    db.get()
+    db.find()
     .then(data => {
         res.status(200).json(data);
     })
@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     const resource = req.body;
-    db.insert(resource)
+    db.add(resource)
     .then(data => {
         res.send(200).json({message: "Post SuccessFul",
     New_Data: data})

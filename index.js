@@ -8,7 +8,7 @@ const server = express();
 server.use(express.json());
 server.use('/api/project', ProjectRouter);
 server.use('/api/Resource', ResourceRouter);
-server.use('/api/tast', TaskRouter);
+server.use('/api/task', TaskRouter);
 
 server.get('/', (req, res) => {
     res.send('Look at me Im wrangling these tables On my own.')

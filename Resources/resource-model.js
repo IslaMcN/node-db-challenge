@@ -18,29 +18,28 @@ function findById(id){
     .first();
 }
 
-function add(project){
+function add(resource){
     return db('resource')
-    .insert(project, 'id')
+    .insert(resource, 'id')
     .then(ids => {
         const [id] = ids;
         return findById(id);
     });
 }
 
-function update(project){
+function update(id, changes){
     return db('resource')
-    .update(project, 'id')
-    .then(ids => {
-        const [id] = ids;
-        return findById(id)
-    })
+    .where('id', id)
+    .update(changes)
+    .then(
+        count => {
+            count > 0 ? this.find(id) : null
+        }
+    );
 }
 
-function remove(project){
+function remove(id){
     return db('resource')
-    .del(project, 'id')
-    .then(ids => {
-        const [id] = ids;
-        return findById(id)
-    })
+    .where("id", id)
+    .del();
 }

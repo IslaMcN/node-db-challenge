@@ -27,21 +27,18 @@ function add(task){
     });
 }
 
-function update(task){
+function update(id, changes){
     return db('task')
-    .update(task, 'id')
-    .then(ids => {
-        const [id] = ids;
-        return findById(id)
-    })
+    .where('id', id)
+    .update(changes)
+    .then(count => {
+        count > 0 ? this.find(id) : null
+    });
 }
 
-function remove(task){
+function remove(id){
     return db('task')
-    .del(task, 'id')
-    .then(ids => {
-        const [id] = ids;
-        return findById(id)
-    })
+    .where('id', id)
+    .del()
 }
 

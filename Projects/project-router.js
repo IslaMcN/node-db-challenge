@@ -3,7 +3,7 @@ const db = require('./project-model');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    db.get()
+    db.find()
     .then(data => {
         res.status(200).json(data);
     })
@@ -14,9 +14,10 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     const project = req.body;
-    db.insert(project)
+    console.log(project)
+    db.add(project)
     .then(data => {
-        res.send(200).json({message: "Post SuccessFul",
+        res.status(200).json({message: "Post SuccessFul",
     New_Data: data})
     })
     .catch(err => {
