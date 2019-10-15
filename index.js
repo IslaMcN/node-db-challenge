@@ -2,7 +2,7 @@ const express = require('express');
 const db = require('./db-config');
 const ProjectRouter = require('./Projects/project-router');
 const ResourceRouter = require('./Resources/resource-router');
-const TaskRouter = require('./task-router');
+const TaskRouter = require('./Tasks/task-router');
 const server = express();
 
 server.use(express.json());
