@@ -9,7 +9,9 @@ module.exports={
 };
 
 function find(){
-    return db('task').select('id', 'description', 'notes', 'completed')
+    return db('task').then(task => {
+        return task.map(task => body(task))
+    })
 }
 
 function findById(id){
@@ -42,3 +44,9 @@ function remove(id){
     .del()
 }
 
+function trueOrFalse(tf){
+    return tf === 1 ? true : false;
+}
+function body(item){
+    return {...item, completed: trueOrFalse(item.completed)}
+}

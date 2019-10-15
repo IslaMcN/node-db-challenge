@@ -5,11 +5,14 @@ module.exports={
     find,
     findById,
     update,
-    remove
+    remove,
+    
 };
 
 function find(){
-    return db('projects').select('id', 'name', 'description', 'completed')
+    return db('projects').then((project) => {
+        return project.map(project => body(project))
+    })
 }
 
 function findById(id){
@@ -43,3 +46,9 @@ function remove(id){
     .del();
 }
 
+function trueOrFalse(tf){
+    return tf === 1 ? true : false;
+}
+function body(item){
+    return {...item, completed: trueOrFalse(item.completed)}
+}
